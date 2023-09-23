@@ -1,0 +1,168 @@
+.NavContainer {
+  min-height: 15vh;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 1%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(12, 11, 16, 0.8);
+}
+.home-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.NavLogo {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 180px;
+  height: 52px;
+}
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 100px;
+    height: 27px;
+  }
+}
+.ListContainer-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 30px;
+  margin-top: 40px;
+  padding-top: 10px;
+  color: #fff;
+  width: 15%;
+  list-style: none;
+}
+.searchContainer {
+  margin-left: auto;
+  margin-top: 25px;
+}
+.searchBar {
+  font-size: 25px;
+}
+.searchIcon {
+  margin-top: 15px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+.avatar {
+  height: 50px;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+.searchInputContainer {
+  width: 220px;
+  height: 32px;
+  margin-right: 32px;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  outline: 1px solid rgb(255, 255, 255);
+  margin-top: 15px;
+}
+
+.InputSearchContainer {
+  height: 100%;
+  width: 170px;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+.InputSearchBar {
+  height: 100%;
+  width: 50px;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  align-items: center;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.hamburgerMenu {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .ListContainer-home {
+    display: none;
+  }
+  .NavContainer {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .avatar {
+    display: none;
+  }
+  .searchInputContainer {
+    height: 22px;
+    margin-right: 20px;
+    width: 100px;
+    margin-top: 0px;
+  }
+  .InputSearchContainer {
+    width: 80px;
+    font-size: 16px;
+  }
+  .InputSearchBar {
+    width: 20px;
+  }
+  .searchIcon {
+    margin-top: 0px;
+  }
+  .hamburgerMenu {
+    display: block;
+    margin-left: 10px;
+    margin-top: 0px;
+    background-color: transparent;
+    border: none;
+  }
+  .menuBar {
+    font-size: 30px;
+    color: #fff;
+  }
+}
+.MenuListContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: medium;
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  list-style-type: none;
+  color: #fff;
+}
+.MenuListContainer li {
+  color: #fff;
+  padding: 20px;
+}
+.ListItems-home {
+  font-family: 'Roboto';
+  color: white;
+  transform: scale(1) translateY(0);
+  transition: transform 0.3s; /* Optional: Add a smooth transition effect */
+}
+
+.ListItems-home:hover {
+  transform: scale(1.2) translateY(-2px);
+  text-decoration: underline;
+}
+.menu-items {
+  color: #fff;
+  font-style: none;
+}

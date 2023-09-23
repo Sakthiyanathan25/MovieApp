@@ -1,0 +1,39 @@
+.popular-container {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.images {
+  height: 300px;
+  width: 200px;
+
+  border: 2px solid #fff;
+}
+.EachPopularMovies {
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.MovieOrderContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 5%;
+  padding-right: 5%;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 768px) {
+  .images {
+    height: 120px;
+    width: 80px;
+
+    border: 2px solid #fff;
+  }
+  .item-container {
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+  }
+}

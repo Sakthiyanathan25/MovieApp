@@ -1,0 +1,49 @@
+.search-container {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.no-result-view-container {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.images {
+  height: 300px;
+  width: 200px;
+
+  border: 2px solid #fff;
+}
+.EachSearchMovies {
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.MovieOrderContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 5%;
+  padding-right: 5%;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .images {
+    height: 120px;
+    width: 80px;
+
+    border: 2px solid #fff;
+  }
+  .item-container {
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+  }
+}

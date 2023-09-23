@@ -1,0 +1,100 @@
+.Container {
+  background-image: url('https://res.cloudinary.com/dn0evywtq/image/upload/v1694615999/ynrnxpqornpkcavfiyvj.png');
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center; /* Align content to the top */
+  /* Center content horizontally */
+  /* Add this */
+}
+
+.top {
+  margin: 30px;
+  align-self: flex-start;
+}
+
+.logo {
+  width: 180px;
+  height: 52px;
+  margin-left: 30px;
+  margin-top: 30px;
+
+  /* Position the logo absolutely within the container */
+  top: 0;
+  left: 0;
+  /* Stick it to the left */
+}
+h1 {
+  color: #fff;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 20px;
+}
+label {
+  font-size: 16px;
+  font-family: 'Roboto';
+  color: #fff;
+  padding-bottom: 10px;
+}
+.center {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 30px;
+  align-items: center;
+  background-color: rgba(12, 11, 16, 0.8);
+  height: 400px;
+  width: 350px;
+}
+
+@media screen and (max-width: 768px) {
+  .Container {
+    background-color: black;
+    background-image: none;
+  }
+
+  .logo {
+    margin: 20px;
+    width: 100px;
+    height: 27px;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .center {
+    background-color: none;
+  }
+}
+
+input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  background-color: #333333;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  outline: 1px solid rgb(212, 211, 211);
+}
+.button {
+  height: 40px;
+  width: 100%;
+  background-color: #e50914;
+  border-radius: 5px;
+  color: #fff;
+  font-family: roboto;
+  text-align: center;
+  margin-top: 20px;
+}
+.error {
+  color: red;
+}

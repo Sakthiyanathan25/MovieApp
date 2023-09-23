@@ -1,0 +1,106 @@
+.HomePageContainer {
+  min-height: 100vh;
+  background-color: #131313;
+  padding-bottom: 100px;
+}
+
+.poster-container {
+  min-height: 74vh;
+  background-size: cover;
+}
+.MovieHeadingContainer {
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 65vh;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(24, 24, 24, 0.546875) 38.26%,
+    #131313 92.82%,
+    #131313 98.68%,
+    #131313 108.61%
+  );
+}
+
+@media screen and (min-width: 768px) {
+  .MovieHeadingContainer {
+    padding-right: 30%;
+  }
+}
+.heading {
+  font-family: 'Roboto';
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .heading {
+    font-size: 60px;
+    line-height: 62px;
+  }
+}
+.description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21px;
+  color: #ffffff;
+  margin-top: 0px;
+}
+@media screen and (min-width: 768px) {
+  .description {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+.playButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  width: 80px;
+  height: 35px;
+  margin-top: 10px;
+}
+@media screen and (min-width: 768px) {
+  .playButton {
+    width: 74px;
+    height: 40px;
+    margin: 10px 10px 10px 0;
+  }
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.head {
+  color: #fff;
+  font-size: 17px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+}
+@media screen and (max-width: 768px) {
+  .head {
+    font-size: 13px;
+  }
+}
+.failure-home-container {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+}

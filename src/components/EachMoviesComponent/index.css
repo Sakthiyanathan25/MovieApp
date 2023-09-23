@@ -1,0 +1,45 @@
+.para-container {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 'Roboto';
+  color: #fff;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+.EachMovieContainer {
+  min-height: 100vh;
+  background-color: black;
+}
+.content-heading {
+  font-size: 20px;
+  opacity: 0.3;
+  font-family: 'Roboto';
+  color: #94a3b8;
+}
+.para {
+  font-size: 15px;
+  color: #f0f8ff;
+  opacity: 0.8;
+  font-family: 'Roboto';
+  padding-bottom: 10px;
+}
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  min-height: 100vh;
+  color: #fff;
+}
