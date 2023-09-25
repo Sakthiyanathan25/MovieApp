@@ -9,7 +9,7 @@ class Header extends Component {
   state = {isSearchBarPresent: false, menuBarClick: false}
 
   searchBar = () => {
-    this.setState({isSearchBarPresent: true})
+    this.setState(p => ({isSearchBarPresent: !p.isSearchBarPresent}))
   }
 
   menuBar = () => {

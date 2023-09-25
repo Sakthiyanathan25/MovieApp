@@ -30,7 +30,7 @@ class Home extends Component {
   getRenderHomeData = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const url = 'https://apis.ccbp.in/movies-app/trending-movies'
+    const url = 'https://apis.ccbp.in/movies-app/originals'
     const option = {
       method: 'GET',
       headers: {
