@@ -4,6 +4,7 @@ import Loader from 'react-loader-spinner'
 import {Link} from 'react-router-dom'
 import Header from '../HeaderComponent'
 import './index.css'
+import Footer from '../FooterComponent'
 
 const apiSearchStatusConstants = {
   initial: 'INITIAL',
@@ -43,7 +44,7 @@ class Search extends Component {
     }
     const response = await fetch(url, option)
     const data = await response.json()
-    if (response.ok) {
+    if (response.ok === true) {
       const updateData = data.results.map(eachMovie => ({
         id: eachMovie.id,
         backdropPath: eachMovie.backdrop_path,
@@ -69,23 +70,23 @@ class Search extends Component {
 
     switch (apiSearchStatus) {
       case apiSearchStatusConstants.success:
-        return this.successPage()
+        return this.successSearchPage()
 
       case apiSearchStatusConstants.noResult:
-        return this.noResultPage()
+        return this.noResultSearchPage()
 
       case apiSearchStatusConstants.failure:
-        return this.failurePage()
+        return this.failureSearchPage()
 
       case apiSearchStatusConstants.inProgress:
-        return this.loaderPage()
+        return this.loaderSearchPage()
 
       default:
         return null
     }
   }
 
-  noResultPage = () => {
+  noResultSearchPage = () => {
     const {SearchInput} = this.state
 
     return (
@@ -103,27 +104,35 @@ class Search extends Component {
     )
   }
 
-  loaderPage = () => (
+  loaderSearchPage = () => (
     <div className="loader-container" testid="loader">
       <Loader type="TailSpin" color="#D81F26" height={50} width={50} />
     </div>
   )
 
-  failurePage = () => (
-    <div>
-      <img
-        src="https://res.cloudinary.com/dc2b69ycq/image/upload/v1670040709/Movies%20App/alert-triangle_sc1zom.png"
-        alt="failure view"
-        className="failureImage"
-      />
-      <p>Something went wrong. Please try again</p>
-      <button type="button" onClick={this.getSearchData()}>
-        Try Again
-      </button>
+  failureSearchPage = () => (
+    <div className="error-page-container">
+      <div className="thumbnail-error-page">
+        <img
+          className="thumbnail-warning-icon"
+          alt="failure view"
+          src="https://res.cloudinary.com/dkbxi5qts/image/upload/v1660451047/movies%20prime%20app/alert-triangle_najaul.png"
+        />
+        <p className="thumbnail-error-msg">
+          Something went wrong. Please try again
+        </p>
+        <button
+          onClick={this.getSearchData}
+          className="thumbnail-try-again-btn"
+          type="button"
+        >
+          Try Again
+        </button>
+      </div>
     </div>
   )
 
-  successPage = () => {
+  successSearchPage = () => {
     const {SearchList} = this.state
     return (
       <div>
@@ -155,6 +164,7 @@ class Search extends Component {
           getSearchData={this.getSearchData}
         />
         {this.renderSearchView()}
+        <Footer />
       </div>
     )
   }

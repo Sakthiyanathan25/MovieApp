@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {BiSearch} from 'react-icons/bi'
+import {HiOutlineSearch} from 'react-icons/hi'
 import {RiMenuFoldFill} from 'react-icons/ri'
 import {ImCancelCircle} from 'react-icons/im'
 import {Link} from 'react-router-dom'
@@ -41,11 +41,11 @@ class Header extends Component {
       <nav className="NavContainer">
         <div className="home-container">
           <div className="NavLogo">
-            <Link to="/">                                          
+            <Link to="/">
               <img
                 className="logo"
                 src="https://res.cloudinary.com/dn0evywtq/image/upload/v1694616864/qyinbzpzwcfmbtg97nsl.png"
-                alt="logo"
+                alt="website logo"
               />
             </Link>
           </div>
@@ -61,16 +61,16 @@ class Header extends Component {
           </ul>
           <div className="searchContainer">
             {!isSearchBarPresent ? (
-              <Link to="/search">
-                <button
-                  type="button"
-                  onClick={this.searchBar}
-                  className="searchIcon"
-                  testid="searchButton"
-                >
-                  <BiSearch className="searchBar" />
-                </button>
-              </Link>
+              <button
+                type="button"
+                onClick={this.searchBar}
+                className="searchIcon"
+                testid="searchButton"
+              >
+                <Link to="/search">
+                  <HiOutlineSearch className="searchBar" />
+                </Link>
+              </button>
             ) : (
               <div className="searchInputContainer">
                 <input
@@ -81,7 +81,7 @@ class Header extends Component {
                   onKeyDown={this.onKeyDownEnter}
                 />
                 <div className="InputSearchBar">
-                  <BiSearch className="searchBar" />
+                  <HiOutlineSearch className="searchBar" />
                 </div>
               </div>
             )}
@@ -91,7 +91,7 @@ class Header extends Component {
               <img
                 className="avatar"
                 src="https://res.cloudinary.com/dn0evywtq/image/upload/v1694677282/Avatar_ocxtys.png"
-                alt="avatar"
+                alt="profile"
               />
             </Link>
           </div>

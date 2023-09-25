@@ -24,10 +24,10 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.getRenderData()
+    this.getRenderHomeData()
   }
 
-  getRenderData = async () => {
+  getRenderHomeData = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/movies-app/trending-movies'
@@ -39,7 +39,7 @@ class Home extends Component {
     }
     const response = await fetch(url, option)
     const data = await response.json()
-    if (response.ok) {
+    if (response.ok === true) {
       const updateData = data.results.map(eachMovie => ({
         id: eachMovie.id,
         backdropPath: eachMovie.backdrop_path,
@@ -58,27 +58,35 @@ class Home extends Component {
     }
   }
 
-  loaderPage = () => (
+  loaderHomePage = () => (
     <div className="loader-container" testid="loader">
       <Loader type="TailSpin" color="#D81F26" height={50} width={50} />
     </div>
   )
 
-  failurePage = () => (
-    <div>
-      <img
-        src="https://res.cloudinary.com/dc2b69ycq/image/upload/v1670040709/Movies%20App/alert-triangle_sc1zom.png"
-        alt="failure view"
-        className="failureImage"
-      />
-      <p>Something went wrong. Please try again</p>
-      <button type="button" onClick={this.getRenderData}>
-        Try Again
-      </button>
+  failureHomePage = () => (
+    <div className="error-page-container">
+      <div className="thumbnail-error-page">
+        <img
+          className="thumbnail-warning-icon"
+          alt="failure view"
+          src="https://res.cloudinary.com/dkbxi5qts/image/upload/v1660451047/movies%20prime%20app/alert-triangle_najaul.png"
+        />
+        <p className="thumbnail-error-msg">
+          Something went wrong. Please try again
+        </p>
+        <button
+          onClick={this.getRenderHomeData}
+          className="thumbnail-try-again-btn"
+          type="button"
+        >
+          Try Again
+        </button>
+      </div>
     </div>
   )
 
-  successPage = () => {
+  successHomePage = () => {
     const {FirstMovie} = this.state
     const {backdropPath, overview, title} = FirstMovie
 
@@ -92,10 +100,10 @@ class Home extends Component {
           <h1 className="heading">{title}</h1>
           <p className="description">{overview}</p>
           <button className="playButton" type="button">
-            <p>
+            <span>
               <FaPlay />
-            </p>
-            <p>Play</p>
+            </span>
+            Play
           </button>
         </div>
       </div>
@@ -107,13 +115,13 @@ class Home extends Component {
 
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.successPage()
+        return this.successHomePage()
 
       case apiStatusConstants.failure:
-        return this.failurePage()
+        return this.failureHomePage()
 
       case apiStatusConstants.inProgress:
-        return this.loaderPage()
+        return this.loaderHomePage()
 
       default:
         return null
@@ -124,11 +132,8 @@ class Home extends Component {
     return (
       <div className="HomePageContainer">
         {this.renderPosterView()}
-        <h1 className="head">TRENDING NOW</h1>
         <TrendingPage />
-        <h1 className="head">TOP RATED</h1>
         <TopRatedPage />
-        <h1 className="head">ORIGINALS</h1>
         <OriginalsPage />
         <Footer />
       </div>

@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
 
@@ -37,11 +38,13 @@ class Login extends Component {
     return (
       <div className="Container">
         <div className="top">
-          <img
-            className="logo"
-            src="https://res.cloudinary.com/dn0evywtq/image/upload/v1694616864/qyinbzpzwcfmbtg97nsl.png"
-            alt="logo"
-          />
+          <Link to="/login">
+            <img
+              className="logo"
+              src="https://res.cloudinary.com/dn0evywtq/image/upload/v1694616864/qyinbzpzwcfmbtg97nsl.png"
+              alt="login website logo"
+            />
+          </Link>
         </div>
         <div className="center">
           <h1>Login</h1>

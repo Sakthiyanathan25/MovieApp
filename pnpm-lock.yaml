@@ -27,6 +27,8 @@ specifiers:
   react-slick: 0.28.1
   react-slick-slider: 0.15.10
   slick-carousel: 1.8.1
+  uuid: 9.0.1
+  uuidv4: 6.2.13
 
 dependencies:
   '@testing-library/jest-dom': 5.11.9
@@ -47,6 +49,8 @@ dependencies:
   react-slick: 0.28.1_react-dom@17.0.1+react@17.0.1
   react-slick-slider: 0.15.10_react-dom@17.0.1+react@17.0.1
   slick-carousel: 1.8.1
+  uuid: 9.0.1
+  uuidv4: 6.2.13
 
 devDependencies:
   eslint-config-airbnb: 18.2.1
@@ -2334,6 +2338,10 @@ packages:
     dependencies:
       source-map: 0.6.1
     dev: true
+
+  /@types/uuid/8.3.4:
+    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
+    dev: false
 
   /@types/webpack-sources/3.2.0:
     resolution: {integrity: sha512-Ft7YH3lEVRQ6ls8k4Ff1oB4jN6oy/XmU6tQISKdhfh+1mR+viZFphS6WL0IrtDOzvefmJg5a0s7ZQoRXwqTEFg==}
@@ -12168,8 +12176,18 @@ packages:
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
-    dev: true
-    optional: true
+
+  /uuid/9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+    dev: false
+
+  /uuidv4/6.2.13:
+    resolution: {integrity: sha512-AXyzMjazYB3ovL3q051VLH06Ixj//Knx7QnUSi1T//Ie3io6CpsPu9nVMOx5MoLWh6xV0B9J0hIaxungxXUbPQ==}
+    dependencies:
+      '@types/uuid': 8.3.4
+      uuid: 8.3.2
+    dev: false
 
   /v8-compile-cache/2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}

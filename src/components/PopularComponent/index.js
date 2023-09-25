@@ -2,7 +2,9 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {Link} from 'react-router-dom'
+import {v4 as uuidv4} from 'uuid'
 import Header from '../HeaderComponent'
+import Footer from '../FooterComponent'
 import './index.css'
 
 const apiPopularStatusConstants = {
@@ -19,10 +21,10 @@ class Popular extends Component {
   }
 
   componentDidMount() {
-    this.getRenderData()
+    this.getRenderPopularData()
   }
 
-  getRenderData = async () => {
+  getRenderPopularData = async () => {
     this.setState({apiPopularStatus: apiPopularStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/movies-app/popular-movies'
@@ -36,6 +38,7 @@ class Popular extends Component {
     const data = await response.json()
     if (response.ok) {
       const updateData = data.results.map(eachMovie => ({
+        uniqueId: uuidv4(),
         id: eachMovie.id,
         backdropPath: eachMovie.backdrop_path,
         title: eachMovie.title,
@@ -56,26 +59,26 @@ class Popular extends Component {
 
     switch (apiPopularStatus) {
       case apiPopularStatusConstants.success:
-        return this.successPage()
+        return this.successPopularPage()
 
       case apiPopularStatusConstants.failure:
-        return this.failurePage()
+        return this.failurePopularPage()
 
       case apiPopularStatusConstants.inProgress:
-        return this.loaderPage()
+        return this.loaderPopularPage()
 
       default:
         return null
     }
   }
 
-  loaderPage = () => (
+  loaderPopularPage = () => (
     <div className="loader-container" testid="loader">
       <Loader type="TailSpin" color="#D81F26" height={50} width={50} />
     </div>
   )
 
-  failurePage = () => (
+  failurePopularPage = () => (
     <div>
       <img
         src="https://res.cloudinary.com/dc2b69ycq/image/upload/v1670040709/Movies%20App/alert-triangle_sc1zom.png"
@@ -83,13 +86,13 @@ class Popular extends Component {
         className="failureImage"
       />
       <p>Something went wrong. Please try again</p>
-      <button type="button" onClick={this.getRenderData()}>
+      <button type="button" onClick={this.getRenderPopularData}>
         Try Again
       </button>
     </div>
   )
 
-  successPage = () => {
+  successPopularPage = () => {
     const {popularList} = this.state
     return (
       <div>
@@ -97,7 +100,7 @@ class Popular extends Component {
           {popularList.map(eachMovie => (
             <li className="EachPopularMovies">
               {' '}
-              <Link to={`/movies/${eachMovie.id}`} key={eachMovie.id}>
+              <Link to={`/movies/${eachMovie.id}`} key={eachMovie.uniqueId}>
                 <div className="MovieItems">
                   <img
                     className="images"
@@ -118,6 +121,7 @@ class Popular extends Component {
       <div className="popular-container">
         <Header />
         {this.renderPopularView()}
+        <Footer />
       </div>
     )
   }

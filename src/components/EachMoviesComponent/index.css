@@ -43,3 +43,21 @@
   min-height: 100vh;
   color: #fff;
 }
+
+.MovieContainer-heading {
+  font-size: 17px;
+  font-weight: 400;
+  font-family: 'Roboto';
+
+  padding-left: 6%;
+}
+.MoreLike-container {
+  display: flex;
+  margin-left: 3%;
+  flex-direction: column;
+}
+@media screen and (max-width: 758px) {
+  .MoreLike-container {
+    margin-left: 6%;
+  }
+}

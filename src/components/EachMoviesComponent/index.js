@@ -111,16 +111,24 @@ class EachMovieDetails extends Component {
   )
 
   renderFailureView = () => (
-    <div className="failure-container">
-      <img
-        src="https://res.cloudinary.com/dc2b69ycq/image/upload/v1670040709/Movies%20App/alert-triangle_sc1zom.png"
-        alt="failure view"
-        className="failureImage"
-      />
-      <p>Something went wrong. Please try again</p>
-      <button type="button" onClick={this.getEachMovieDetails}>
-        Try Again
-      </button>
+    <div className="error-page-container">
+      <div className="thumbnail-error-page">
+        <img
+          className="thumbnail-warning-icon"
+          alt="failure view"
+          src="https://res.cloudinary.com/dkbxi5qts/image/upload/v1660451047/movies%20prime%20app/alert-triangle_najaul.png"
+        />
+        <p className="thumbnail-error-msg">
+          Something went wrong. Please try again
+        </p>
+        <button
+          onClick={this.getEachMovieDetails}
+          className="thumbnail-try-again-btn"
+          type="button"
+        >
+          Try Again
+        </button>
+      </div>
     </div>
   )
 
@@ -191,21 +199,24 @@ class EachMovieDetails extends Component {
         </div>
 
         {/* List of Similar Movies */}
-        <ul className="MovieOrderContainer">
-          {similarMovieDetails.map(eachMovie => (
-            <li className="EachSearchMovies" key={eachMovie.id}>
-              <Link to={`/movies/${eachMovie.id}`}>
-                <div className="MovieItems">
-                  <img
-                    className="images"
-                    src={eachMovie.posterPath}
-                    alt={eachMovie.title}
-                  />
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="MoreLike-container">
+          <h1 className="MovieContainer-heading">More like this</h1>
+          <ul className="MovieOrderContainer">
+            {similarMovieDetails.map(eachMovie => (
+              <li className="EachSearchMovies" key={eachMovie.id}>
+                <Link to={`/movies/${eachMovie.id}`}>
+                  <div className="MovieItems">
+                    <img
+                      className="images"
+                      src={eachMovie.posterPath}
+                      alt={eachMovie.title}
+                    />
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <Footer />
       </div>

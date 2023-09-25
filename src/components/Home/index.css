@@ -98,9 +98,61 @@
     font-size: 13px;
   }
 }
-.failure-home-container {
+
+.thumbnail-error-page {
+  background-color: #0d0d0d;
+  height: 90px;
+  width: 100%;
   display: flex;
-  flex-direction: center;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 24px;
+}
+.thumbnail-warning-icon {
+  width: 16px;
+  height: 16px;
+}
+.thumbnail-error-msg {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 13px;
+  color: #ffffff;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+.thumbnail-try-again-btn {
+  width: 69px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 4px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 16px;
+  color: #171f46;
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .thumbnail-error-page {
+    height: 170px;
+  }
+  .thumbnail-warning-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .thumbnail-error-msg {
+    margin-top: 20px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .thumbnail-try-again-btn {
+    width: 85px;
+    height: 32px;
+  }
 }
