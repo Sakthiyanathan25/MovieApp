@@ -2,14 +2,22 @@ import {Component} from 'react'
 import {HiOutlineSearch} from 'react-icons/hi'
 import {RiMenuFoldFill} from 'react-icons/ri'
 import {ImCancelCircle} from 'react-icons/im'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import './index.css'
 
 class Header extends Component {
-  state = {isSearchBarPresent: false, menuBarClick: false}
+  state = {isSearchPathPresent: false, menuBarClick: false}
 
-  searchBar = () => {
-    this.setState(p => ({isSearchBarPresent: !p.isSearchBarPresent}))
+  componentDidMount() {
+    this.isSearBar()
+  }
+
+  isSearBar = () => {
+    const {match} = this.props
+    const {path} = match
+    if (path === '/search') {
+      this.setState(p => ({isSearchPathPresent: !p.isSearchPathPresent}))
+    }
   }
 
   menuBar = () => {
@@ -35,7 +43,7 @@ class Header extends Component {
   }
 
   render() {
-    const {isSearchBarPresent, menuBarClick} = this.state
+    const {isSearchPathPresent, menuBarClick} = this.state
 
     return (
       <nav className="NavContainer">
@@ -60,17 +68,17 @@ class Header extends Component {
             </Link>
           </ul>
           <div className="searchContainer">
-            {!isSearchBarPresent ? (
-              <button
-                type="button"
-                onClick={this.searchBar}
-                className="searchIcon"
-                testid="searchButton"
-              >
-                <Link to="/search">
+            {!isSearchPathPresent ? (
+              <Link to="/search">
+                <button
+                  type="button"
+                  onClick={this.isSearch}
+                  className="searchIcon"
+                  testid="searchButton"
+                >
                   <HiOutlineSearch className="searchBar" />
-                </Link>
-              </button>
+                </button>{' '}
+              </Link>
             ) : (
               <div className="searchInputContainer">
                 <input
@@ -127,4 +135,4 @@ class Header extends Component {
   }
 }
 
-export default Header
+export default withRouter(Header)

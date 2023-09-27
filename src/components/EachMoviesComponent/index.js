@@ -1,9 +1,9 @@
 import {Component} from 'react'
+import {Link, withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import format from 'date-fns/format'
 import {FaPlay} from 'react-icons/fa'
-import {Link} from 'react-router-dom'
 import Header from '../HeaderComponent'
 import Footer from '../FooterComponent'
 
@@ -25,6 +25,18 @@ class EachMovieDetails extends Component {
 
   componentDidMount() {
     this.getEachMovieDetails()
+  }
+
+  componentDidUpdate(preProps) {
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+
+    // Check if the id parameter in the URL has changed
+    if (id !== preProps.match.params.id) {
+      // If it has changed, fetch new movie details
+      this.getEachMovieDetails()
+    }
   }
 
   getEachMovieDetails = async () => {
@@ -217,7 +229,6 @@ class EachMovieDetails extends Component {
             ))}
           </ul>
         </div>
-
         <Footer />
       </div>
     )
@@ -243,4 +254,4 @@ class EachMovieDetails extends Component {
   }
 }
 
-export default EachMovieDetails
+export default withRouter(EachMovieDetails)
